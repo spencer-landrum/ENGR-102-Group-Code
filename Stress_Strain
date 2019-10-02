@@ -1,0 +1,35 @@
+strain = float(input('Please enter the strain: '))
+O_x = 0
+O_y = 0
+A_x = 0.0125
+A_y = 45
+C_x = 0.0625
+C_y = 48
+D_x = 0.184
+D_y = 60
+E_x = 0.27
+E_y = 50
+stress = 0
+#linear function is y = mx + c
+if (strain >= O_x) and (strain < A_x): #Linear range
+    m = (A_y - O_y) / (A_x - O_x)
+    c = O_y - m * O_x
+    stress = m * strain + c
+    print('The steel is in the linear range, and the stress is %f ksi.'%stress)
+elif (strain >= A_x) and (strain < C_x): #Plastic range
+    m = (C_y - A_y) / (C_x - A_x)
+    c = A_y - m * A_x
+    stress = m * strain + c
+    print('The steel is in the plastic range, and the stress is %f ksi.'%stress)    
+elif (strain >= C_x) and (strain < D_x): #Strain Hardening
+    m = (D_y - C_y) / (D_x - C_x)
+    c = C_y - m * C_x
+    stress = m * strain + c
+    print('The steel is in the strain hardening range, and the stress is %f ksi.'%stress)
+elif (strain >= D_x) and (strain < E_x): #Necking
+    m = (E_y - D_y) / (E_x - D_x)
+    c = D_y - m * D_x
+    stress = m * strain + c
+    print('It is in the necking range, and the stress is %f ksi.'%stress)
+else: #Fracture
+    print('The steel is fractured.')
