@@ -1,1 +1,35 @@
-HI
+# By submitting this assignment, I agree to the following:
+#  “Aggies do not lie, cheat, or steal, or tolerate those who do”
+#  “I have not given or received any unauthorized aid on this assignment”
+# Name: 		Joshua Protain
+# Section:		517
+# Assignment:	Lab 7, Activity 3
+# Date:		10 October 2019
+chess = [['R','N','B','Q','K','B','N','R'],
+         ['P','P','P','P','P','P','P','P'],
+         ['.','.','.','.','.','.','.','.'],
+         ['.','.','.','.','.','.','.','.'],
+         ['.','.','.','.','.','.','.','.'],
+         ['.','.','.','.','.','.','.','.'],
+         ['p','p','p','p','p','p','p','p'],
+         ['r','n','b','q','k','b','n','r']]
+rows = 8
+columns = 8
+original_row = int(input('Please input the row of the chess piece you wish to move (starting with 0 for first row): '))
+original_column = int(input('Please input the column of the chess piece you wish to move (starting with 0 for first column): '))
+final_row = int(input('Please input the row where you want the chess piece to go (starting with 0 for first row): '))
+final_column = int(input('Please input the column where you want the chess piece to go (starting with 0 for first column): '))
+while any(('k' in i for i in chess) and ('K' in i for i in chess)):
+    if chess[original_row][original_column] != '.':
+        chess[final_row][final_column] = chess[original_row][original_column]
+        chess[original_row][original_column] = "."
+        print(chess.split())
+    else:
+        break
+    #Next turn
+    if any(('k' in i for i in chess) and ('K' in i for i in chess)):
+        original_row = int(input('Please input the row of the chess piece you wish to move (starting with 0 for first row): '))
+        original_column = int(input('Please input the column of the chess piece you wish to move (starting with 0 for first column): '))
+        final_row = int(input('Please input the row where you want the chess piece to go (starting with 0 for first row): '))
+        final_column = int(input('Please input the column where you want the chess piece to go (starting with 0 for first column): '))
+print('GAME OVER')
