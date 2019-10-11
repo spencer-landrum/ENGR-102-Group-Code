@@ -1,0 +1,52 @@
+# By submitting this assignment, I agree to the following:
+#  “Aggies do not lie, cheat, or steal, or tolerate those who do”
+#  “I have not given or received any unauthorized aid on this assignment”
+# Name: 		Joshua Protain
+# Section:		517
+# Assignment:	Lab 7, Activity 1
+# Date:		10 October 2019
+
+#Part: 1
+stock_prices = input('Input stock prices separated by a space: ').split()
+float_list = [float(price) for price in stock_prices] #Converts the string into a list of floats
+for price in float_list:
+    print('$',str(price).rjust(8))
+
+#Part: 2
+# User inputs string w/ numbers: '203 12 5 800 -10'
+user_input = input('Enter numbers: ')
+
+tokens = user_input.split() # Split into separate strings
+
+# Convert strings to integers
+nums = []
+for token in tokens:
+    nums.append(int(token))
+    
+# Print each position and number
+print() # Print a single newline
+for index in range(len(nums)):
+    value = nums[index]
+    print('%d: %d' % (index, value))
+    
+# Determine minimum odd number
+min_num = None
+for num in nums:
+    if (min_num == None) and (num % 2 == 1):
+        # First odd number found
+        min_num = num
+    elif (min_num != None) and (num < min_num ) and (num % 2 == 1):
+        # Smallest odd number found
+        min_num = num
+        
+print('Min odd #: ', min_num)
+
+#Part 3
+my_temps = [75, 87, 95, 102, 76]
+separator = input(str('Input a separation: '))
+for temp in range(len(my_temps)):
+    my_temps.sort()
+    if temp == 0:
+        print(my_temps[temp], end=' ')
+    else:
+        print('%s %d' %(separator,my_temps[temp]), end=' ')
